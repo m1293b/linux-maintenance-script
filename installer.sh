@@ -10,7 +10,7 @@ echo "--- Preparing Maintenance Script ---"
 
 # Define the URL for the main script on GitHub
 # IMPORTANT: Change this URL to point to YOUR main script's raw file on GitHub
-MAIN_SCRIPT_URL="https://raw.githubusercontent.com/YourUsername/YourRepoName/main/main_script.sh"
+MAIN_SCRIPT_URL="https://raw.githubusercontent.com/m1293b/linux-maintenance-script/refs/heads/main/linux-maintenance.sh"
 
 # Define where to save the script temporarily
 TEMP_SCRIPT_PATH="/tmp/main_maintenance_script.sh"
