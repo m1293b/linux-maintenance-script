@@ -12,7 +12,7 @@ echo "--- Preparing Maintenance Script ---"
 MAIN_SCRIPT_URL="https://raw.githubusercontent.com/m1293b/linux-maintenance-script/refs/heads/main/linux-maintenance.sh"
 
 # Define where to save the script temporarily
-TEMP_SCRIPT_PATH="/tmp/main_maintenance_script.sh"
+TEMP_SCRIPT_PATH="./tmp_main_maintenance_script.sh"
 
 # Check for required tools (curl, dos2unix) and install if missing
 echo "Checking for necessary tools..."
