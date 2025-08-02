@@ -8,7 +8,6 @@
 
 # --- Step 1: Initial System Update ---
 echo "Performing initial system update and cleanup..."
-# Corrected 'autoremove' typo
 sudo apt update && sudo apt full-upgrade -y && sudo apt autoclean && sudo apt autoremove -y
 echo "Initial update complete."
 echo ""
@@ -128,7 +127,6 @@ sudo apt autoremove -y > /dev/null 2>&1
 
 # 4. Manage System Logs
 sudo journalctl --vacuum-size=500M > /dev/null 2>&1
-# Corrected and safer find command to avoid warnings
 sudo find /var/log -type f -not -path "/var/log/journal/*" -mtime +60 -delete
 
 # 5. Send Success Notification
@@ -158,7 +156,6 @@ read -p "Setup is complete. Do you want to run the maintenance script now? (y/n)
 run_now=${run_now:-y}
 if [[ "$run_now" == "y" ]]; then
     echo "Running maintenance script for the first time..."
-    # Corrected to run the script with bash
     bash "$SCRIPT_FILE"
 fi
 
