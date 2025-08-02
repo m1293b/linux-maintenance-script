@@ -25,4 +25,4 @@ To run the setup script on a new machine, execute the following command in your 
 > **⚠️ Security Warning:** This command downloads and executes a script from the internet. You should only run this if you trust the source of the script. You can review the script's code by pasting the URL into your browser before running the command.
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/m1293b/linux-maintenance-script/refs/heads/main/linux-maintenance.sh | bash
+curl -sSL https://raw.githubusercontent.com/m1293b/linux-maintenance-script/refs/heads/main/installer.sh | bash
