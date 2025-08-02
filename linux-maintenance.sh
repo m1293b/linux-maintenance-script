@@ -6,11 +6,19 @@
 # This script configures, creates, schedules, and runs a weekly maintenance task.
 # ==============================================================================
 
-# --- Step 1: Create Necessary Directories ---
+# --- Step 1: Initial System Update ---
+echo "Performing initial system update and cleanup..."
+# Corrected 'autoremove' typo
+sudo apt update && sudo apt full-upgrade -y && sudo apt autoclean && sudo apt autoremove -y
+echo "Initial update complete."
+echo ""
+
+
+# --- Step 2: Create Necessary Directories ---
 mkdir -p /home/$USER/scripts
 
 
-# --- Step 2: Interactive Configuration ---
+# --- Step 3: Interactive Configuration ---
 CONFIG_FILE="/home/$USER/scripts/maintenance_config.conf"
 SCRIPT_FILE="/home/$USER/scripts/update_and_upgrade.sh"
 
@@ -44,7 +52,7 @@ while true; do
 done
 
 
-# --- Step 3: Write the Configuration File ---
+# --- Step 4: Write the Configuration File ---
 echo "# --- Maintenance Script Configuration ---" > "$CONFIG_FILE"
 echo "NTFY_SERVER=\"$NTFY_SERVER\"" >> "$CONFIG_FILE"
 echo "NTFY_TOPIC=\"$NTFY_TOPIC\"" >> "$CONFIG_FILE"
@@ -55,7 +63,7 @@ echo ""
 echo "Configuration saved successfully to $CONFIG_FILE!"
 
 
-# --- Step 4: Create the Main Maintenance Script ---
+# --- Step 5: Create the Main Maintenance Script ---
 cat << 'EOF' > "$SCRIPT_FILE"
 #!/bin/bash
 # ==============================================================================
@@ -132,7 +140,7 @@ exit 0
 EOF
 
 
-# --- Step 5: Finalize Permissions and Scheduling ---
+# --- Step 6: Finalize Permissions and Scheduling ---
 chmod +x "$SCRIPT_FILE"
 
 if ! crontab -l -u $USER | grep -q "$SCRIPT_FILE"; then
@@ -144,7 +152,7 @@ else
 fi
 
 
-# --- Step 6: Optional First Run ---
+# --- Step 7: Optional First Run ---
 echo ""
 read -p "Setup is complete. Do you want to run the maintenance script now? (y/n) [default: y]: " run_now
 run_now=${run_now:-y}
