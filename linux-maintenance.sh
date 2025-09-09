@@ -84,7 +84,7 @@ sudo apt autoclean > /dev/null 2>&1
 sudo apt autoremove -y > /dev/null 2>&1
 sudo journalctl --vacuum-size=500M > /dev/null 2>&1
 sudo find /var/log -type f -not -path "/var/log/journal/*" -mtime +60 -delete
-if [ "$SEND_SUCCESS_NOTIFICATION" = "yes" ]; then notify "Maintenance Complete" "Weekly maintenance for $HOSTNAME finished successfully." "default" "tada"; fi
+if [ "$SEND_SUCCESS_NOTIFICATION" = "yes" ]; then notify "$HOSTNAME - Maintenance Complete" "Weekly maintenance has finished successfully." "default" "tada"; fi
 exit 0
 EOF
 
