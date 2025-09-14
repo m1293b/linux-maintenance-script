@@ -6,6 +6,8 @@
 # Exit immediately if any command fails
 set -e
 
+apt install sudo -y
+
 echo "--- Preparing Maintenance Script ---"
 
 # Define the URL for the main script on GitHub
