@@ -8,6 +8,10 @@ set -e
 
 echo "--- Preparing Maintenance Script ---"
 
+# Install sudo if it hasn't been installed
+
+apt install sudo -y
+
 # Define the URL for the main script on GitHub
 MAIN_SCRIPT_URL="https://raw.githubusercontent.com/m1293b/linux-maintenance-script/refs/heads/main/linux-maintenance.sh"
 
